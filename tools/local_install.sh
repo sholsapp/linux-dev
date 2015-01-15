@@ -33,7 +33,7 @@ mmc_write_rootfs () {
 		sudo rm -rf "${location}/lib/modules/${KERNEL_UTS}" || true
 	fi
 
-	sudo tar xf "${DIR}/deploy/${KERNEL_UTS}-modules.tar.gz" -C "${location}/"
+	sudo tar xfo "${DIR}/deploy/${KERNEL_UTS}-modules.tar.gz" -C "${location}/"
 	sync
 
 	if [ -f "${DIR}/deploy/config-${KERNEL_UTS}" ] ; then
@@ -76,7 +76,7 @@ mmc_write_boot_uname () {
 		sudo mkdir -p "${location}/dtbs/${KERNEL_UTS}/"
 
 		echo "Installing ${KERNEL_UTS}-dtbs.tar.gz to ${partition}"
-		sudo tar xf "${DIR}/deploy/${KERNEL_UTS}-dtbs.tar.gz" -C "${location}/dtbs/${KERNEL_UTS}/"
+		sudo tar xfo "${DIR}/deploy/${KERNEL_UTS}-dtbs.tar.gz" -C "${location}/dtbs/${KERNEL_UTS}/"
 		sync
 	fi
 
@@ -114,7 +114,7 @@ mmc_write_boot () {
 		sudo mkdir -p "${location}/dtbs"
 
 		echo "Installing ${KERNEL_UTS}-dtbs.tar.gz to ${partition}"
-		sudo tar xf "${DIR}/deploy/${KERNEL_UTS}-dtbs.tar.gz" -C "${location}/dtbs/"
+		sudo tar xfo "${DIR}/deploy/${KERNEL_UTS}-dtbs.tar.gz" -C "${location}/dtbs/"
 		sync
 	fi
 }

@@ -13,8 +13,8 @@ Please send bug reports to "bugs@rcn-ee.com".
 1. [GCC/ARM cross toolchain](http://elinux.org/Toolchains)
 2. [Linaro](http://www.linaro.org/downloads/)
 
-The kernel source will be downloaded when you run any of the build scripts. By
-default this script will clone the
+A cross compiler and the kernel source will be downloaded when you run any of
+the build scripts. By default this script will clone the
 [linux-stable](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git)
 tree to `./ignore/linux-src` with full history.
 
@@ -41,19 +41,30 @@ swapon /swapfile
 
 # building
 
-To build the kernel image use the following command.
+The preferred way of building the Linux kernel et al. is to build the Debian
+package. This has a number of advantages, including the ability to build the
+package on a host other than the one you install it on.
 
-```bash
-./build_kernel.sh
-```
-
-Optionally, to build a Debian package one can use the following command.
+To build a Debian package one can use the following command.
 
 ```bash
 ./build_deb.sh
 ```
 
+Optionally, to build the kernel image as a tar achive, use the following
+command.
+
+```bash
+./build_kernel.sh
+```
+
 # installation
+
+To install a Debian package, use the following commands.
+
+```bash
+dpkg -i <deb>
+```
 
 To install the kernel image to an SD card (requires `MMC` variable set in
 `./system.sh`) use the following.
